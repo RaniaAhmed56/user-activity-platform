@@ -1,0 +1,384 @@
+{
+  "info": {
+    "name": "User Activity Platform - API Collection",
+    "description": "Complete API endpoints for User Activity Platform with Event-Driven Microservices",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "item": [
+        {
+          "name": "API Health Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/health",
+              "host": ["{{base_url}}"],
+              "path": ["api", "health"]
+            },
+            "description": "Check if API Service is running and healthy"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Create Activities",
+      "item": [
+        {
+          "name": "Create LOGIN Activity",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"user_login1\",\n  \"actionType\": \"LOGIN\",\n  \"metadata\": {\n    \"browser\": \"Chrome\",\n    \"device\": \"Desktop\",\n    \"ipAddress\": \"192.168.1.100\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/activities",
+              "host": ["{{base_url}}"],
+              "path": ["api", "activities"]
+            },
+            "description": "Create a LOGIN activity log"
+          },
+          "response": []
+        },
+        {
+          "name": "Create LOGOUT Activity",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"user_login1\",\n  \"actionType\": \"LOGOUT\",\n  \"metadata\": {\n    \"sessionDuration\": \"45 minutes\",\n    \"lastPage\": \"Dashboard\",\n    \"device\": \"Desktop\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/activities",
+              "host": ["{{base_url}}"],
+              "path": ["api", "activities"]
+            },
+            "description": "Create a LOGOUT activity log"
+          },
+          "response": []
+        },
+        {
+          "name": "Create SEARCH Activity",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"user_search1\",\n  \"actionType\": \"SEARCH\",\n  \"metadata\": {\n    \"searchQuery\": \"nodejs tutorial\",\n    \"resultsFound\": 150,\n    \"device\": \"Mobile\",\n    \"location\": \"Cairo\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/activities",
+              "host": ["{{base_url}}"],
+              "path": ["api", "activities"]
+            },
+            "description": "Create a SEARCH activity log"
+          },
+          "response": []
+        },
+        {
+          "name": "Create PURCHASE Activity",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"user_purchase1\",\n  \"actionType\": \"PURCHASE\",\n  \"metadata\": {\n    \"productId\": \"prod-12345\",\n    \"productName\": \"Node.js Course\",\n    \"amount\": 99.99,\n    \"currency\": \"USD\",\n    \"paymentMethod\": \"Credit Card\",\n    \"country\": \"Egypt\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/activities",
+              "host": ["{{base_url}}"],
+              "path": ["api", "activities"]
+            },
+            "description": "Create a PURCHASE activity log"
+          },
+          "response": []
+        },
+        {
+          "name": "Create PAGE_VIEW Activity",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"user_visitor1\",\n  \"actionType\": \"PAGE_VIEW\",\n  \"metadata\": {\n    \"pageUrl\": \"/courses/nodejs\",\n    \"pageTitle\": \"Node.js Course\",\n    \"referrer\": \"google.com\",\n    \"duration\": 120,\n    \"device\": \"Desktop\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/activities",
+              "host": ["{{base_url}}"],
+              "path": ["api", "activities"]
+            },
+            "description": "Create a PAGE_VIEW activity log"
+          },
+          "response": []
+        },
+        {
+          "name": "Create COMMENT Activity",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"user_comment1\",\n  \"actionType\": \"COMMENT\",\n  \"metadata\": {\n    \"postId\": \"post-567\",\n    \"commentText\": \"Great course!\",\n    \"rating\": 5,\n    \"device\": \"Mobile\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/activities",
+              "host": ["{{base_url}}"],
+              "path": ["api", "activities"]
+            },
+            "description": "Create a COMMENT activity log"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Retrieve Activities",
+      "item": [
+        {
+          "name": "Get All Activities",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/activities",
+              "host": ["{{base_url}}"],
+              "path": ["api", "activities"]
+            },
+            "description": "Get all activities with default pagination (page=1, limit=10)"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Activities - Page 1",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/activities?page=1&limit=5",
+              "host": ["{{base_url}}"],
+              "path": ["api", "activities"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "disabled": false
+                },
+                {
+                  "key": "limit",
+                  "value": "5",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Get activities with pagination - Page 1, 5 items per page"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Activities - Filter by userId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/activities?userId=user_login1&page=1&limit=10",
+              "host": ["{{base_url}}"],
+              "path": ["api", "activities"],
+              "query": [
+                {
+                  "key": "userId",
+                  "value": "user_login1",
+                  "disabled": false
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "disabled": false
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Get all activities for a specific user"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Activities - Filter by actionType",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/activities?actionType=LOGIN&page=1&limit=10",
+              "host": ["{{base_url}}"],
+              "path": ["api", "activities"],
+              "query": [
+                {
+                  "key": "actionType",
+                  "value": "LOGIN",
+                  "disabled": false
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "disabled": false
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Get all LOGIN activities"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Activities - Multiple Filters",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/activities?userId=user_login1&actionType=LOGIN&page=1&limit=10",
+              "host": ["{{base_url}}"],
+              "path": ["api", "activities"],
+              "query": [
+                {
+                  "key": "userId",
+                  "value": "user_login1",
+                  "disabled": false
+                },
+                {
+                  "key": "actionType",
+                  "value": "LOGIN",
+                  "disabled": false
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "disabled": false
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Get activities filtered by multiple criteria"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Activities - Date Range",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/activities?startDate=2026-01-01&endDate=2026-01-31&page=1&limit=10",
+              "host": ["{{base_url}}"],
+              "path": ["api", "activities"],
+              "query": [
+                {
+                  "key": "startDate",
+                  "value": "2026-01-01",
+                  "disabled": false
+                },
+                {
+                  "key": "endDate",
+                  "value": "2026-01-31",
+                  "disabled": false
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "disabled": false
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Get activities within a date range"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Activity by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/activities/{{activity_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "activities", "{{activity_id}}"]
+            },
+            "description": "Get a specific activity by ID. Replace {{activity_id}} with the actual ID from a response"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000",
+      "type": "string",
+      "description": "Base URL for API Service"
+    },
+    {
+      "key": "activity_id",
+      "value": "550e8400-e29b-41d4-a716-446655440000",
+      "type": "string",
+      "description": "Activity ID for GET by ID requests - replace with actual ID"
+    }
+  ]
+}
