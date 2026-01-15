@@ -1,108 +1,68 @@
+User Activity Platform – Event-Driven Microservices
 
-# User Activity Platform – Event-Driven Microservices
+Backend system implementing an event-driven microservices architecture using Node.js, Apache Kafka, and MongoDB.
+User activities (LOGIN, LOGOUT, SEARCH, etc.) are processed asynchronously via Kafka instead of being written directly to the database.
 
-This project is a backend system built to practice **event-driven microservices architecture** using **Node.js, Apache Kafka, and MongoDB**.
+🚀 Deployed on AWS
 
-The main idea is to handle user activities (such as LOGIN, LOGOUT, SEARCH) asynchronously using Kafka instead of saving data directly to the database.
+Features
 
+Event-driven architecture with Apache Kafka
 
-##  Features
+Microservices (API Service + Worker Service)
 
-* Event-driven architecture using Apache Kafka
-* Microservices setup (API Service + Worker Service)
-* Clean architecture with simple DDD principles
-* REST API with pagination and filtering
-* MongoDB for persistent storage
-* Docker & Docker Compose for easy setup
-* Scalable and production-style design
+Clean architecture (DDD-inspired)
 
+REST API with pagination & filtering
 
+MongoDB for persistence
 
-## Project Concept
+Docker & Docker Compose
 
-1. Client sends a request to the API
-2. API Service validates the request
-3. API Service publishes an event to Kafka
-4. Worker Service consumes the event
-5. Worker Service stores the data in MongoDB
+Production-style, scalable design
 
-The API responds immediately, while data processing happens asynchronously.
-
-
-
-##  Architecture Flow
-
+Architecture Flow
 
 Client
-  ↓
-API Service
-  ↓
-Kafka (user-activities topic)
-  ↓
-Worker Service
-  ↓
-MongoDB
+→ API Service
+→ Kafka (user-activities topic)
+→ Worker Service
+→ MongoDB
 
+Benefits
 
-This design allows:
+Fast API responses
 
-* Fast API responses
-* Loose coupling between services
-* Independent scaling of services
+Loose coupling between services
 
+Independent service scaling
 
-
-##  Project Structure (DDD Style)
-
-
+Project Structure
 src/
-├── domain/          // Entities and business logic
+├── domain/          // Entities & business logic
 ├── application/     // Use cases
 ├── infrastructure/  // Kafka, MongoDB, config
-└── interfaces/      // Controllers and routes
+└── interfaces/      // Controllers & routes
 
+Running the Project
+Prerequisites
 
+Docker & Docker Compose
 
-##  Running the Project
+Node.js 18+ (for local development)
 
-### Prerequisites
-
-* Docker
-* Docker Compose
-* Node.js 18+ (for local development)
-
-### Run with Docker Compose
-
-
+Docker Compose
 cd infra
-docker-compose up --build
+docker compose up --build
 
+Notes
 
+Kafka decouples API and persistence layers
 
+Events are processed asynchronously
 
+MongoDB indexes improve query performance
 
-##  Implementation Notes
-
-* Kafka is used to decouple the API layer from data persistence
-* MongoDB indexes are created for better filtering performance
-* Pagination is implemented to handle large datasets
-* Events are processed asynchronously for better scalability
-
-
-##  Project Summary
-
-This project demonstrates:
-
-* Real-time event processing with Kafka
-* Microservices communication
-* Clean backend architecture
-* Scalable and maintainable design
-* Practical Docker usage
-
-It is not just a simple CRUD API, but a real event-driven backend system.
-
-
-##  License
+License
 
 MIT
-
