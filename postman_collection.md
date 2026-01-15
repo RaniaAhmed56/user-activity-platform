@@ -1,30 +1,45 @@
-Services:
+Services
+API Service
 
-* API Service: [http://localhost:3000]
-* MongoDB: localhost:27017
-* Kafka: localhost:9092
+Local: http://localhost:3000
 
+Public: http://13.60.197.141:3000
 
+MongoDB
 
-## API Testing (Postman)
+Local: localhost:27017
 
-### Health Check
+Kafka
 
+Local: localhost:9092
+
+API Testing (Postman)
+
+Health Check
+
+Local
 
 GET http://localhost:3000/api/health
 
 
+Public
 
+GET http://13.60.197.141:3000/api/health
 
-### Create Activity (LOGIN)
+Create Activity (LOGIN)
 
+Local
 
 POST http://localhost:3000/api/activities
 
 
+Public
+
+POST http://13.60.197.141:3000/api/activities
+
+
 Request body:
 
-json
 {
   "userId": "user_login1",
   "actionType": "LOGIN",
@@ -35,45 +50,57 @@ json
   }
 }
 
+Get All Activities
 
-### Get All Activities
+Local
 
 GET http://localhost:3000/api/activities
 
 
-### Get Activities by User
+Public
 
+GET http://13.60.197.141:3000/api/activities
+
+Get Activities by User
+
+Local
 
 GET http://localhost:3000/api/activities?userId=user_login1
 
 
-### Get Activities with Pagination
+Public
 
+GET http://13.60.197.141:3000/api/activities?userId=user_login1
+
+Get Activities with Pagination
+
+Local
 
 GET http://localhost:3000/api/activities?userId=user_final_test&page=1&limit=5
 
 
+Public
 
+GET http://13.60.197.141:3000/api/activities?userId=user_final_test&page=1&limit=5
 
-### Get Activities by Action Type
+Get Activities by Action Type
 
+Local
 
 GET http://localhost:3000/api/activities?actionType=LOGIN
 
 
-##  Environment Variables
+Public
 
-**API Service**
+GET http://13.60.197.141:3000/api/activities?actionType=LOGIN
 
-
+Environment Variables
+API Service
 PORT=3000
 KAFKA_BROKERS=kafka:9092
 MONGO_URI=mongodb://mongo:27017/activitydb
 
-
-**Worker Service**
-
-
+Worker Service
 KAFKA_BROKER=kafka:9092
 KAFKA_TOPIC=user-activities
 MONGO_URI=mongodb://mongo:27017/activitydb
